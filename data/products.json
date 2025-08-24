@@ -1,0 +1,39 @@
+ [{
+    "name": "Wireless Bluetooth Headphones",
+    "price": "2999",
+    "description": "High-quality wireless headphones with noise cancellation and 20 hours battery life.",
+    "ratings": "4.5",
+    "images": [
+        { "image": "https://example.com/images/headphone1.jpg" },
+        { "image": "https://example.com/images/headphone2.jpg" }
+    ],
+    "category": "Electronics",
+    "seller": "TechStore Pvt Ltd",
+    "stock": 120
+},
+{
+    "name": "Smartphone X200",
+    "price": "19999",
+    "description": "Latest smartphone with AMOLED display, 128GB storage, and 48MP camera.",
+    "ratings": "4.7",
+    "images": [
+      { "image": "https://example.com/images/phone1.jpg" },
+      { "image": "https://example.com/images/phone2.jpg" }
+    ],
+    "category": "Mobiles",
+    "seller": "MobileWorld",
+    "stock": 50
+},
+{
+    "name": "Gaming Laptop Pro",
+    "price": "75999",
+    "description": "Powerful gaming laptop with Intel i7, 16GB RAM, and RTX 3060 GPU.",
+    "ratings": "4.8",
+    "images": [
+      { "image": "https://example.com/images/laptop1.jpg" }
+    ],
+    "category": "Computers",
+    "seller": "GameHub",
+    "stock": 25
+}
+ ]
