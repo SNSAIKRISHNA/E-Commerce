@@ -178,7 +178,8 @@ footer {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
-  color: #000000;
+  color: #474545;
+  
 }
 
 .rating-outer::before {
@@ -208,6 +209,7 @@ footer {
 #product_price {
   font-size: 2rem;
   font-weight: bold;
+  color: #000000;
 }
 
 #cart_btn,
