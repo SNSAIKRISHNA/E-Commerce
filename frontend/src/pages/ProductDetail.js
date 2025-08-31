@@ -1,22 +1,41 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function ProductDetail({ cartItems, setCartItems }) {
   const [product, setProduct] = useState(null);
   const [qty, setQty] = useState(1);
   const { id } = useParams();
 
-
-useEffect(() => {
-  fetch(process.env.REACT_APP_API_URL + "/products/" + id)
-    .then((res) => res.json())
-    .then((res) => setProduct(res.product));
-}, []);
-
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API_URL + "/products/" + id)
+      .then((res) => res.json())
+      .then((res) => setProduct(res.product));
+  }, []);
 
   function addToCart() {
-    const newItem = { product, qty };
-    setCartItems((state) => [...state, newItem]);
+    const itemExist = cartItems.find(
+      (item) => item.product._id === product._id
+    );
+    if (!itemExist) {
+      const newItem = { product, qty };
+      setCartItems((state) => [...state, newItem]);
+      toast.success("Cart Item Added Successfully");
+    }
+  }
+
+  function increaseQty() {
+    if (product.stock == qty) {
+      return;
+    }
+    setQty((state) => state + 1);
+  }
+  function decreaseQty() {
+    if (qty == 1) {
+      return;
+    }
+
+    setQty((state) => state - 1);
   }
 
   return (
@@ -48,10 +67,9 @@ useEffect(() => {
 
             <p id="product_price">${product.price}</p>
             <div className="stockCounter d-inline">
-              <span
-                className="btn btn-danger minus"
-                onClick={() => setQty(qty > 1 ? qty - 1 : 1)}
-              >-</span>
+              <span className="btn btn-danger minus" onClick={decreaseQty}>
+                -
+              </span>
 
               <input
                 type="number"
@@ -60,14 +78,14 @@ useEffect(() => {
                 readOnly
               />
 
-              <span
-                className="btn btn-primary plus"
-                onClick={() => setQty(qty < product.stock ? qty + 1 : qty)}
-              >+</span>
+              <span className="btn btn-primary plus" onClick={increaseQty}>
+                +
+              </span>
             </div>
             <button
               type="button"
               onClick={addToCart}
+              disabled={product.stock == 0}
               id="cart_btn"
               className="btn btn-primary d-inline ml-4"
             >
