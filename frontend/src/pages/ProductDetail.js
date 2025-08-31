@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export default function ProductDetail() {
+export default function ProductDetail({ cartItems, setCartItems }) {
   const [product, setProduct] = useState(null);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
 
-  useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL + "/products/" + id)
-      .then((res) => res.json())
-      .then((res) => setProduct(res.product));
-  }, []);
 
-  if (!product) {
-    return <p className="text-center my-5">Loading product...</p>;
+useEffect(() => {
+  fetch(process.env.REACT_APP_API_URL + "/products/" + id)
+    .then((res) => res.json())
+    .then((res) => setProduct(res.product));
+}, []);
+
+
+  function addToCart() {
+    const newItem = { product, qty };
+    setCartItems((state) => [...state, newItem]);
   }
 
   return (
@@ -34,27 +38,36 @@ export default function ProductDetail() {
             <hr />
 
             <div className="rating-outer">
-              <div className="rating-inner"
-              style={{ width: `${(product.ratings / 5) * 100}%` }}></div>
+              <div
+                className="rating-inner"
+                style={{ width: `${(product.ratings / 5) * 100}%` }}
+              ></div>
             </div>
 
             <hr />
 
             <p id="product_price">${product.price}</p>
             <div className="stockCounter d-inline">
-              <span className="btn btn-danger minus">-</span>
+              <span
+                className="btn btn-danger minus"
+                onClick={() => setQty(qty > 1 ? qty - 1 : 1)}
+              >-</span>
 
               <input
                 type="number"
                 className="form-control count d-inline"
-                value="1"
+                value={qty}
                 readOnly
               />
 
-              <span className="btn btn-primary plus">+</span>
+              <span
+                className="btn btn-primary plus"
+                onClick={() => setQty(qty < product.stock ? qty + 1 : qty)}
+              >+</span>
             </div>
             <button
               type="button"
+              onClick={addToCart}
               id="cart_btn"
               className="btn btn-primary d-inline ml-4"
             >
@@ -64,15 +77,19 @@ export default function ProductDetail() {
             <hr />
 
             <p>
-              Status: <span id="stock_status" className={product.stock > 0 ?'text-success' : 'text-danger'}>{product.stock > 0 ? "In Stock" : "Out Of Stock"}</span>
+              Status:{" "}
+              <span
+                id="stock_status"
+                className={product.stock > 0 ? "text-success" : "text-danger"}
+              >
+                {product.stock > 0 ? "In Stock" : "Out Of Stock"}
+              </span>
             </p>
 
             <hr />
 
             <h4 className="mt-2">Description:</h4>
-            <p>
-              {product.description}
-            </p>
+            <p>{product.description}</p>
             <hr />
             <p id="product_seller mb-3">
               Sold by: <strong>{product.seller}</strong>

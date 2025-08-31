@@ -9,7 +9,7 @@ export default function Footer() {
             Digitro  - 2023-2024, All Rights Reserved
           </p>
           <span><h3 style={{ margin: "8px 0 0 0" }}>Contact For More Information</h3></span>
-          <h3 className="mx-3"> Instagram</h3>
+          
         </div>
         <Link
           to="/contact"

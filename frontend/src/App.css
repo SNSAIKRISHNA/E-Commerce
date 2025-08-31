@@ -96,7 +96,7 @@ nav {
 
 #cart {
   font-size: 1.5rem;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 #cart_count {
@@ -115,7 +115,7 @@ nav {
 
 .card {
   height: 100%;
-  background-color: #d6d6d6;
+  background-color: #959494;
 }
 
 .card-title a {
