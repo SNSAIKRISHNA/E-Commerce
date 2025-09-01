@@ -137,7 +137,7 @@ nav {
 
 
 #view_btn {
-  background-color:#ffffffcc;
+  background-color: "linear-gradient(90deg,#989797ff 0%, #000000ff 100%)";
   color: rgb(0, 0, 0);
 }
 #view_btn:hover{

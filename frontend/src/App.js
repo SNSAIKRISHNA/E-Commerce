@@ -7,7 +7,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Contact from "./components/Contact";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { Cart } from "./pages/Cart";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <ToastContainer theme="dark" position="bottom-center"/>
+      <ToastContainer theme="dark" position="bottom-center" />
       <Router>
         <div>
           <Header cartItems={cartItems} />
@@ -31,11 +31,19 @@ function App() {
                 />
               }
             />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+
+            <Route
+              path="/cart"
+              element={
+                <Cart cartItems={cartItems} setCartItems={setCartItems} />
+              }
+            />
           </Routes>
-          <Footer />
         </div>
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
       </Router>
     </div>
   );
