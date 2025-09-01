@@ -15,18 +15,22 @@ Digitro is a full-stack e-commerce web application built with modern web technol
 🏠 Home Page
 <img width="1904" height="891" alt="Screenshot (92)" src="https://github.com/user-attachments/assets/f9aba8fe-8217-47d7-b97e-97a470741e59" />
 <img width="1920" height="900" alt="Screenshot (93)" src="https://github.com/user-attachments/assets/8e3196ce-a1d4-46b1-9040-9aa07e902da7" />
+
 Displays featured products with ratings and quick “View Details” button.
 
 📄 Product Details Page
 <img width="1920" height="867" alt="Screenshot (94)" src="https://github.com/user-attachments/assets/89dc695f-eacb-4eb1-8dc3-015e596f6dfa" />
+
 Detailed view with description, stock, and add-to-cart functionality.
 
 📬 Contact Page
 <img width="1914" height="869" alt="Screenshot (97)" src="https://github.com/user-attachments/assets/923ff68a-d2d3-42d6-9e4c-3296789a36d1" />
+
 Form for users to send queries.
 
 🛒 Cart Page
 <img width="1918" height="809" alt="Screenshot (99)" src="https://github.com/user-attachments/assets/4de47230-937f-4fa0-bb78-488ab93bec72" />
+
 Manage products, quantities, and view order summary.
 
 
